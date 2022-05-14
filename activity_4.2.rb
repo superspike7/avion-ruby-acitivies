@@ -1,6 +1,9 @@
 module Authentable
   def method_missing(method, *args, &block)
-    if method.to_s.include?('_login')
+    # admin_login or buyer_login
+    login_method_name = self.class.to_s.downcase.concat("_login")
+
+    if method.to_s.include?(login_method_name)
       login
     else
       raise ArgumentError.new("This Method does not exist")
