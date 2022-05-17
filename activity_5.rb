@@ -1,7 +1,9 @@
+def compare_lower(smallest, current)
+  smallest < current ? smallest : current 
+end
+
 def smallest_number(arr)
-  arr.reduce do |smallest, current|
-    smallest < current ? smallest : current 
-  end
+  arr.reduce(&method(:compare_lower))
 end
 
 
