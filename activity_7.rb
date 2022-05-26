@@ -25,3 +25,13 @@ def unique_in_order(iterable)
   
   array.chunk(&:itself).map(&:first)
 end
+
+# fourth iteration
+
+def unique_in_order(input)
+  iterable(input).chunk(&:itself).map(&:first)
+end
+
+def iterable(input)
+  input.is_a?(String) ? input.chars : input
+end
